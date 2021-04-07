@@ -1,0 +1,21 @@
+version: '3'
+
+services: 
+    app:
+        build: .
+        ports: 
+            - 80:80
+        volumes:
+            - .:/var/www/gerenciamento-estoque
+
+    db:
+        image: mysql:8.0
+        environment: 
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: gerenciamento-estoque
+
+    composer:
+        image: composer:2.0.11
+        command: composer install
+        volumes: 
+            - .:/app

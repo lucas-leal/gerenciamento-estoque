@@ -24,5 +24,7 @@ class ProductController extends Controller
         $product->sku = $request->sku;
         $product->description = $request->description;
         $product->save();
+
+        return redirect()->route('products.list');
     }
 }

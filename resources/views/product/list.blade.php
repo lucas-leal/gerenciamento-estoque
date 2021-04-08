@@ -4,7 +4,10 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h4 class="mb-3">Produtos</h4>
+            <div class="mb-3">
+                <h4 class="mb-3 d-inline">Produtos</h4>
+                <a href="{{ route('products.create') }}" class="btn btn-primary float-right">Novo</a>
+            </div>
             <table class="table table-hover">
                 <thead class="thead-light">
                     <tr>

@@ -7,6 +7,12 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+    public function list()
+    {
+        $products = Product::all();
+        return view('product.list', ['products' => $products]);
+    }
+
     public function create()
     {
         return view('product.create');

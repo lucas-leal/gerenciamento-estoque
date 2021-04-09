@@ -44,4 +44,18 @@ class ProductController extends Controller
 
         return redirect()->route('products.list');
     }
+
+    public function delete(string $id)
+    {
+        $product = Product::findOrFail($id);
+        return view('product.delete', ['product' => $product]);
+    }
+
+    public function destroy(string $id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('products.list');
+    }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ProductRequest extends FormRequest
 {
@@ -14,7 +16,11 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'sku' => ['required', 'max:45', 'unique:products'],
+            'sku' => [
+                'required',
+                'max:45',
+                Rule::unique(Product::class)->ignore($this->route('id')),
+            ],
             'description' => ['required', 'max:255']
         ];
     }

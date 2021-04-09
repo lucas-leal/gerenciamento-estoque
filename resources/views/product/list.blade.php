@@ -14,6 +14,7 @@
                         <th>SKU</th>
                         <th>Descrição</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@
                             <td>{{ $product->sku }}</td>
                             <td>{{ $product->description }}</td>
                             <td><a href="{{ route('products.edit', ['id' => $product->id]) }}" class="btn btn-secondary">Editar</a></td>
+                            <td><a href="{{ route('products.delete', ['id' => $product->id]) }}" class="btn btn-danger">Remover</a></td>
                         </tr>
                     @endforeach
                 </tbody>

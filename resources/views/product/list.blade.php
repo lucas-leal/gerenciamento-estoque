@@ -13,6 +13,7 @@
                     <tr>
                         <th>SKU</th>
                         <th>Descrição</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,6 +21,7 @@
                         <tr>
                             <td>{{ $product->sku }}</td>
                             <td>{{ $product->description }}</td>
+                            <td><a href="{{ route('products.edit', ['id' => $product->id]) }}" class="btn btn-secondary">Editar</a></td>
                         </tr>
                     @endforeach
                 </tbody>

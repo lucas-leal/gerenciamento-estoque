@@ -27,4 +27,21 @@ class ProductController extends Controller
 
         return redirect()->route('products.list');
     }
+
+    public function edit(string $id)
+    {
+        $product = Product::findOrFail($id);
+        return view('product.edit', ['product' => $product]);
+    }
+
+    public function update(ProductRequest $request, string $id)
+    {
+        $product = Product::findOrFail($id);
+
+        $product->sku = $request->sku;
+        $product->description = $request->description;
+        $product->save();
+
+        return redirect()->route('products.list');
+    }
 }

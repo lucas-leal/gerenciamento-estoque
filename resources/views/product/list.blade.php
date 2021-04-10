@@ -8,12 +8,11 @@
                 <h4 class="mb-3 d-inline">Produtos</h4>
                 <a href="{{ route('products.create') }}" class="btn btn-primary float-right">Novo</a>
             </div>
-            <table class="table table-hover">
+            <table class="table table-hover table-sm">
                 <thead class="thead-light">
                     <tr>
                         <th>SKU</th>
                         <th>Descrição</th>
-                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -22,8 +21,10 @@
                         <tr>
                             <td>{{ $product->sku }}</td>
                             <td>{{ $product->description }}</td>
-                            <td><a href="{{ route('products.edit', ['id' => $product->id]) }}" class="btn btn-secondary">Editar</a></td>
-                            <td><a href="{{ route('products.delete', ['id' => $product->id]) }}" class="btn btn-danger">Remover</a></td>
+                            <td>
+                                <a href="{{ route('products.delete', ['id' => $product->id]) }}" class="btn btn-danger btn-sm float-right ml-2">Remover</a>
+                                <a href="{{ route('products.edit', ['id' => $product->id]) }}" class="btn btn-secondary btn-sm float-right">Editar</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

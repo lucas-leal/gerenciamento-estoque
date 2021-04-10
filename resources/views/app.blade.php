@@ -18,6 +18,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="{{ route('products.list') }}">Produtos</a>
+                <a class="nav-item nav-link" href="{{ route('stock.add.form') }}">Adicionar estoque</a>
+                <a class="nav-item nav-link" href="{{ route('stock.remove.form') }}">Remover estoque</a>
             </div>
         </div>
     </nav>

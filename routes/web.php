@@ -1,9 +1,16 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('login', [AuthController::class, 'index']);
+Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::redirect('', 'products');
 
 Route::get('products', [ProductController::class, 'list'])->name('products.list');
 Route::get('products/create', [ProductController::class, 'create'])->name('products.create');

@@ -23,6 +23,11 @@
                 <a class="nav-item nav-link" href="{{ route('report') }}">Relatório</a>
             </div>
         </div>
+        <ul class="navbar-nav my-2 my-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}">Sair</a>
+            </li>
+        </ul>
     </nav>
     <br>
     <main role="main" class="container">

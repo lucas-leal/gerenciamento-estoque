@@ -20,6 +20,7 @@
                 <a class="nav-item nav-link" href="{{ route('products.list') }}">Produtos</a>
                 <a class="nav-item nav-link" href="{{ route('stock.add.form') }}">Adicionar estoque</a>
                 <a class="nav-item nav-link" href="{{ route('stock.remove.form') }}">Remover estoque</a>
+                <a class="nav-item nav-link" href="{{ route('report') }}">Relatório</a>
             </div>
         </div>
     </nav>

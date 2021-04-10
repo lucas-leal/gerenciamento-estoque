@@ -15,14 +15,7 @@ class StockController extends Controller
 
     public function add(StockRequest $request)
     {
-        $product = Product::where('sku', $request->sku)->firstOrFail();
-
-        $stockHandling = new StockHandling();
-        $stockHandling->amount = $request->amount;
-        $stockHandling->origin = StockHandling::ORIGIN_SYSTEM;
-
-        $product->handlings()->save($stockHandling);
-        
+        $this->addStock($request, StockHandling::ORIGIN_SYSTEM);
         return redirect()->route('stock.add.form');
     }
 
@@ -32,6 +25,23 @@ class StockController extends Controller
     }
 
     public function remove(StockRequest $request)
+    {
+        $this->removeStock($request, StockHandling::ORIGIN_SYSTEM);
+        return redirect()->route('stock.remove.form');
+    }
+
+    public function addStock(StockRequest $request, string $origin = StockHandling::ORIGIN_API)
+    {
+        $product = Product::where('sku', $request->sku)->firstOrFail();
+
+        $stockHandling = new StockHandling();
+        $stockHandling->amount = $request->amount;
+        $stockHandling->origin = $origin;
+
+        $product->handlings()->save($stockHandling);
+    }
+
+    public function removeStock(StockRequest $request, string $origin = StockHandling::ORIGIN_API)
     {
         $product = Product::where('sku', $request->sku)->firstOrFail();
 
@@ -45,10 +55,8 @@ class StockController extends Controller
 
         $stockHandling = new StockHandling();
         $stockHandling->amount = -$request->amount;
-        $stockHandling->origin = StockHandling::ORIGIN_SYSTEM;
+        $stockHandling->origin = $origin;
 
         $product->handlings()->save($stockHandling);
-
-        return redirect()->route('stock.remove.form');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,5 @@ Route::post('stock', [StockController::class, 'add'])->name('stock.add');
 
 Route::get('stock/remove', [StockController::class, 'removeForm'])->name('stock.remove.form');
 Route::patch('stock', [StockController::class, 'remove'])->name('stock.remove');
+
+Route::get('report', [ReportController::class, 'report'])->name('report');

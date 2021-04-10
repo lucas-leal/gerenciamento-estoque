@@ -7,7 +7,7 @@
             <div class="mb-3">
                 <h4 class="mb-3 d-inline">Relatório de movimentação</h4>
             </div>
-            <table class="table table-hover">
+            <table class="table table-hover table-sm">
                 <thead class="thead-light">
                     <tr>
                         <th>SKU</th>
@@ -50,7 +50,7 @@
             <div class="mb-3">
                 <h4 class="mb-3 d-inline">Estoque baixo</h4>
             </div>
-            <table class="table table-hover">
+            <table class="table table-hover table-sm">
                 <thead class="thead-light">
                     <tr>
                         <th>SKU</th>

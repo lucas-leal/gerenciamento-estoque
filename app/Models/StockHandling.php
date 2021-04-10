@@ -17,7 +17,7 @@ class StockHandling extends Model
 
     public function isAddition(): bool
     {
-        return $this->amount < 1;
+        return $this->amount > 0;
     }
 
     public function getAbsoluteAmount(): int

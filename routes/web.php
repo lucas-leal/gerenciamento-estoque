@@ -12,20 +12,23 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::redirect('', 'products');
-
-    Route::get('products', [ProductController::class, 'list'])->name('products.list');
-    Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
-    Route::post('products', [ProductController::class, 'store'])->name('products.store');
-    Route::get('products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-    Route::put('products/{id}', [ProductController::class, 'update'])->name('products.update');
-    Route::get('products/{id}/delete', [ProductController::class, 'delete'])->name('products.delete');
-    Route::delete('products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
-
-    Route::get('stock/add', [StockController::class, 'addForm'])->name('stock.add.form');
-    Route::post('stock', [StockController::class, 'add'])->name('stock.add');
-
-    Route::get('stock/remove', [StockController::class, 'removeForm'])->name('stock.remove.form');
-    Route::patch('stock', [StockController::class, 'remove'])->name('stock.remove');
-
     Route::get('report', [ReportController::class, 'report'])->name('report');
+
+    Route::prefix('products')->group(function () {
+        Route::get('', [ProductController::class, 'list'])->name('products.list');
+        Route::get('create', [ProductController::class, 'create'])->name('products.create');
+        Route::post('', [ProductController::class, 'store'])->name('products.store');
+        Route::get('{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+        Route::put('{id}', [ProductController::class, 'update'])->name('products.update');
+        Route::get('{id}/delete', [ProductController::class, 'delete'])->name('products.delete');
+        Route::delete('{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+    });
+    
+    Route::prefix('stock')->group(function () {
+        Route::get('add', [StockController::class, 'addForm'])->name('stock.add.form');
+        Route::post('', [StockController::class, 'add'])->name('stock.add');
+
+        Route::get('remove', [StockController::class, 'removeForm'])->name('stock.remove.form');
+        Route::patch('', [StockController::class, 'remove'])->name('stock.remove');
+    });
 });

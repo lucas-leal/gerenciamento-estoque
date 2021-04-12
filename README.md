@@ -1,6 +1,6 @@
-## Gerenciamento de estoque
+# Gerenciamento de estoque
 
-# Tecnologias utilizadas
+## Tecnologias utilizadas
 
 O sistema foi desenvolvido utilizando a arquitetura MVC e as seguintes tecnologias:
 
@@ -8,7 +8,7 @@ O sistema foi desenvolvido utilizando a arquitetura MVC e as seguintes tecnologi
 - Laravel 8.0
 - MySQL 8.0
 
-# Configuração em ambiente Microsoft Windows
+## Configuração em ambiente Microsoft Windows
 
 Recursos necessários:
 
@@ -29,5 +29,5 @@ Passos para instalação:
 - O sistema estará disponível no endereço `http://localhost:8000`
 
 Execução dos testes automatizados:
-- No diretório raiz do projeto executar o comando `php artisan test`
+- No diretório raiz do projeto executar o comando `php artisan test --testsuite=Feature`
 - OBS: É feito um refresh no banco de dados após cada teste

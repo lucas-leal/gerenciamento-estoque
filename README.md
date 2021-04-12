@@ -32,6 +32,12 @@ Execução dos testes automatizados:
 - No diretório raiz do projeto executar o comando `php artisan test --testsuite=Feature`
 - OBS: É feito um refresh no banco de dados após cada teste
 
+Credenciais para acesso à aplicação:
+```
+E-mail: usuario@usuario.com
+Senha: password
+```
+
 ## Instruções para utilização da api:
 
 A api contém uma rota para realização do login e que retorna um token para ser utilizado nas requisições de movimentação de estoque.
@@ -71,8 +77,8 @@ Authorization: Bearer 1|veOV1k9FUmKLl0bx0D7voUyL5xUC1JwQUXGDHpxx
 Content-Length: 39
 
 {
- 	"sku": "PLGTX5050",
- 	"amount": 200
+    "sku": "PLGTX5050",
+    "amount": 200
 }
 ```
 
